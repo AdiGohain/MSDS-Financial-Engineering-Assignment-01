@@ -32,3 +32,9 @@ Hyperparameter Tuning
 - Comparing performance across commodities.
 
 How to use this repository:
+- First download Gohain_Programming_Assignment_01.ipynb
+  - Upon running this file in jupyter notebook, the code will first download historical data for the commodities from yahoo finance and save it into a newly created folder called historical_data
+  - The code will then re import each csv file per commodity from historical_data, and begin cleaning and processing the files for ML by computing lag price features, HML, OMC, volume lag metrics, and a target.
+  - The processed files will be saved in a newly created folder called processed_data
+- Next, download each of the {commodity}_futures_ML.ipbyn files and save them into the processed_data folder.
+  - Each of the ipbyn files has the same code with the only difference being that they pull their own commodity processed_data csv file. Also training data for each commodiity individually is less processor intensive compared to training data for all commodities together under a for loop.  
