@@ -19,19 +19,19 @@ Trading volume lags
 - Feature Selection
   - Evaluating features using wrapper methods (e.g., all-subsets, stepwise, or embedded feature importance from XGBoost/LightGBM).
 
-Model Development
-- Predicting binary (up/down) or ternary (up/stable/down) returns.
+- Model Development
+  - Predicting binary (up/down) or ternary (up/stable/down) returns.
   - Starting with logistic regression for benchmarking.
   - Training tree-based ensemble models (XGBoost, LightGBM, Random Forest).
   - Using time-series cross-validation (rolling window).
 
-Hyperparameter Tuning
-- Optimizing with randomized/grid search.
-- Evaluation
-- ROC-AUC, accuracy, precision, recall, and confusion matrix.
-- Comparing performance across commodities.
+- Hyperparameter Tuning
+  - Optimizing with randomized/grid search.
+  - Evaluation
+  - ROC-AUC, accuracy, precision, recall, and confusion matrix.
+  - Comparing performance across commodities.
 
-How to use this repository:
+### How to use this repository:
 - First download Gohain_Programming_Assignment_01.ipynb
   - Upon running this file in jupyter notebook, the code will first download historical data for the commodities from yahoo finance and save it into a newly created folder called historical_data
   - The code will then re import each csv file per commodity from historical_data, and begin cleaning and processing the files for ML by computing lag price features, HML, OMC, volume lag metrics, and a target.
