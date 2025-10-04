@@ -48,4 +48,9 @@ Trading volume lags
   - The code will then re import each csv file per commodity from historical_data, and begin cleaning and processing the files for ML by computing lag price features, HML, OMC, volume lag metrics, and a target.
   - The processed files will be saved in a newly created folder called processed_data
 - Next, download each of the {commodity}_futures_ML.ipbyn files and save them into the processed_data folder.
-  - Each of the ipbyn files has the same code with the only difference being that they pull their own commodity processed_data csv file. Also training data for each commodiity individually is less processor intensive compared to training data for all commodities together under a for loop.  
+  - Each of the ipbyn files has the same code with the only difference being that they pull their own commodity processed_data csv file. Also training data for each commodiity individually is less processor intensive compared to training data for all commodities together under a for loop.
+ 
+
+AI Tools used:
+I primarily used perplexity for help with troubleshooting code for enabling me to combining the 4 commodities to clean and process the data
+I also asked perplexity to provide some external factors I should be mindful of along with links that I could visit and read more about the commodities (corn, wheat, soybeans, and cotton) before analyzing financial markets and predicting their futures closing price for next day.
