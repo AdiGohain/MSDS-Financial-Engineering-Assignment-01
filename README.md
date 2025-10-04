@@ -15,14 +15,25 @@ Open–Close spreads (OMC)
 Exponential moving averages (2, 4, 8-day)
 Trading volume lags
 
+### Data Preparation, Pipeline & Programming
+- I used historical daily futures price data between (200-2025) sourced using Yahoo! Finance for each of the four commodities. For each of the datasets, I created a pipeline for preprocessing and feature engineering by deriving the following features/indications:
+  - Lagged prices for 1–3 days or today’s price, price 2 days ago, and price 3 days ago.
+  - Similarly, tading volume lags for 1-3 days
+  - Exponential moving averages using the lagged prices in order to mitigate leakage which acted as indicators for momentum.
+  - Log returns, by calculating the natural log of relative prices which was used as a regresstion target as well as for classifying.
+  - Binary targets where 1 indicated if the returns were positive while 0 indicated negative returns
+- Notes
+  - In terms of the programming process, I removed any null values that got created from the lagging process and standardized the data prior to training the models.
+  - The analysis was primarily done using Python and I used the Polars and Pandas libraries to clean the data, transform tables, and compute the features. I also incorporated scikit-learn to preprocess, cross-valdate, and to perform logistical regression and derive evaluation metrics. Lastly, I used Matplotlib and Seaborn for creating time series vizualizations and heatmaps.
+
 ### Methodology
 - Feature Selection
-  - Evaluating features using wrapper methods (e.g., all-subsets, stepwise, or embedded feature importance from XGBoost/LightGBM).
+  - Evaluating features using wrapper methods (all-subsets, stepwise, or embedded feature importance from XGBoost).
 
 - Model Development
   - Predicting binary (up/down) or ternary (up/stable/down) returns.
   - Starting with logistic regression for benchmarking.
-  - Training tree-based ensemble models (XGBoost, LightGBM, Random Forest).
+  - Training tree-based ensemble models (XGBoost, Binary Logistic).
   - Using time-series cross-validation (rolling window).
 
 - Hyperparameter Tuning
